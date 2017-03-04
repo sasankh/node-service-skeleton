@@ -1,8 +1,7 @@
 'use strict';
 
 var ROUTES = {
-
-  //health check
+  home: '/',
   healthCheck: '/health'
 
 };

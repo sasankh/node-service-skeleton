@@ -9,6 +9,7 @@ var health = require(__base + '/server/controllers/health');
 exports = module.exports = function(app) {
 
   //GET
+  app.get(apiRoutes.home,health.checkServerStatus);
   app.get(apiRoutes.healthCheck,health.checkServerStatus);
 
   //POST
