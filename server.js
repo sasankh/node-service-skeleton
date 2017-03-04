@@ -4,12 +4,9 @@
 global.__base = __dirname;
 
 var express = require('express');
-var http = require('http');
-var path = require('path');
 var helmet = require('helmet');
 var cuid = require('cuid');
 var morgan = require('morgan');
-var flash = require('connect-flash');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var compression = require('compression');
@@ -31,6 +28,7 @@ if(config.app.env === 'production' || config.app.env === 'stage' || config.app.e
 // request id initializer for logger
 var requestID = function(req, res, next) {
   req.requestId = cuid();
+  req.passData = {};
   next();
 };
 
@@ -47,7 +45,10 @@ app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
 // routes
 require('./server/routes/index')(app);
 
-logger = require(__base + '/server/init/logger').main;
+//initialize
+require('./server/init/init');
+
+logger = require(__base + '/server/init/init').logger.main;
 
 // start listening
 var server = app.listen(app.get('port'), function() {
