@@ -5,7 +5,8 @@ exports.application =  process.env.APPLICATION;
 exports.app = {
   port: process.env.PORT || 3000,
   cryptoKey: process.env.CRYPTOKEY,
-  env: process.env.ENVIRONMENT
+  env: process.env.ENVIRONMENT,
+  request_timeout: process.env.REQUEST_TIMEOUT
 };
 
 exports.mysql = {

@@ -55,4 +55,8 @@ var server = app.listen(app.get('port'), function() {
   logger.info('[INITIALIZATION] --> server.js --> '+ config.application +' started at port : ' + app.get('port'));
 });
 
+if (config.app.request_timeout) {
+  server.timeout = config.app.request_timeout;
+}
+
 module.exports = server;
