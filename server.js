@@ -48,7 +48,7 @@ require('./server/routes/index')(app);
 //initialize
 require('./server/init/init');
 
-logger = require(__base + '/server/init/init').logger.main;
+logger = require(__base + '/server/utilities/utils').logger.main;
 
 // start listening
 var server = app.listen(app.get('port'), function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var healthlog = require(__base + '/server/init/init').logger.healthcheck;
+var healthlog = require(__base + '/server/utilities/utils').logger.healthcheck;
 
 // export functions
 module.exports = {
